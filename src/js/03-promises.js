@@ -25,8 +25,9 @@ function onFormSubmit(evt) {
   let amount = Number(elems.amount.value);
 
   for (let position = 1; position <= amount; position++) {
-    delay += step;
-
+    if (position !== 1) {
+      delay += step;
+    }
     createPromise(position, delay)
       .then(({ position, delay }) =>
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`),

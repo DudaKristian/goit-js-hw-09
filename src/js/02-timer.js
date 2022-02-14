@@ -36,8 +36,9 @@ function startCounter() {
     const deltaTime = selectedDate - Date.now();
     const { days, hours, minutes, seconds } = convertMs(deltaTime);
 
-    if (deltaTime < 0) {
+    if (deltaTime <= 0) {
       clearInterval(intervalId);
+      return;
     }
 
     startBtn.disabled = true;
